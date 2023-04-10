@@ -1,0 +1,515 @@
+// By Adham Eldouh !
+
+// --------------------
+
+// Start roles
+:root {
+  --main-color: #0061f2;
+}
+
+* width */
+::-webkit-scrollbar {
+  width: 10px;
+  /* border-radius: 10px; */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0061f2; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0052ce; 
+}
+#top {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  cursor: pointer;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--main-color);
+  z-index: 2000;
+  // position: relative;
+  transition: 0.3s;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    border-radius: 5px;
+    height: 100%;
+    background-color: #0052ce;
+    transition: 0.3s;
+    z-index: -1;
+  }
+  &:hover:before {
+    width: 100%;
+  }
+}
+.loader {
+  z-index: 10000;
+
+  .icon-welcome {
+    width: 65px;
+    height: 55px;
+    z-index: 9;
+    animation: circle 1.5s infinite linear;
+
+    .heart {
+      color: var(--main-color);
+      z-index: 10;
+
+      &:nth-child(1) {
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &:nth-child(2) {
+        bottom: 0;
+        right: 6px;
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+        left: 8px;
+      }
+    }
+  }
+}
+@keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#icon {
+  width: 25px;
+  cursor: pointer;
+}
+body {
+  scroll-behavior: smooth;
+}
+.heading {
+  margin-bottom: 30px;
+
+  h2 {
+    color: #4889e9;
+    font-size: 70px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin: 0;
+  }
+
+  h5 {
+    margin: -30px 0 0;
+    font-size: 25px;
+    text-align: center;
+    color: #5a5858;
+  }
+// Start Nav
+nav {
+  border-bottom: 1px solid #f0f0f0;
+
+  .logo {
+    word-spacing: -2px;
+
+    span {
+      color: var(--main-color);
+    }
+  }
+
+  ul {
+    li {
+      .active {
+        color: var(--main-color) !important;
+      }
+
+      a {
+        transition: 0.3s;
+        font-weight: 500;
+
+        &:hover {
+          color: var(--main-color) !important;
+        }
+      }
+    }
+  }
+
+  .toggler {
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+// Start Home
+.home {
+  .image {
+    img {
+      position: relative;
+      animation: bounce 5s linear infinite;
+    }
+  }
+
+  .text {
+
+    h2,
+    h3,
+    h4,
+    p {
+      color: #363d47;
+    }
+
+    span {
+      color: var(--main-color);
+    }
+
+    .links {
+      a {
+        background-color: var(--main-color);
+        padding: 10px 20px;
+        transition: 0.3s;
+        color: #fff;
+        cursor: pointer;
+
+        // &:hover {
+        //   // background-color: #0052ce;
+        // }
+      }
+    }
+  }
+}
+.scroll {
+  p {
+    color: var(--main-color);
+    animation: 1.5s down infinite;
+  }
+
+  i {
+    color: var(--main-color);
+    animation: 1.5s down infinite;
+  }
+}
+// Start about
+.about {
+  .container {
+    .text {
+      span {
+        color: var(--main-color);
+      }
+
+      h3 {
+        letter-spacing: -2px;
+      }
+
+      a {
+        background-color: var(--main-color);
+        padding: 10px 20px;
+        transition: 0.3s;
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+          background-color: #0052ce;
+        }
+      }
+    }
+  }
+}
+// Start services
+.services {
+  background-color: #f5f5f5;
+
+  .card {
+    position: relative;
+    transition: 0.3s;
+
+    &::before {
+      content: "";
+      left: 50%;
+      transform: translateX(-50%);
+      height: 3px;
+      top: -3px;
+      background-color: var(--main-color);
+      position: absolute;
+      width: 0;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  border: none;
+
+  .icon {
+    color: var(--main-color);
+    font-size: 60px;
+  }
+
+  h1 {
+    color: #363d47;
+  }
+
+  a {
+    color: var(--main-color);
+    transition: 0.3s;
+
+    &:hover {
+      color: #0052ce;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .services {
+    .card {
+      margin-bottom: 15px;
+    }
+  }
+}
+// Start skills
+.skills {
+  .skill {
+    &.active {
+      .bottom {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          background-color: var(--main-color);
+          animation: line 3s;
+          width: var(--width);
+          -webkit-animation: line 3s;
+        }
+      }
+    }
+
+    .bottom {
+      height: 20px;
+      background-color: #eeeeee;
+      position: relative;
+    }
+  }
+}
+// Start Projects
+.projects {
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      transition: 0.3s; 
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+    }
+  }
+}
+// Start Contact
+.contact {
+  .box {
+    i {
+      font-size: 20px;
+      color: var(--main-color);
+      width: 44px;
+      height: 44px;
+      background: #eef7ff;
+      border-radius: 50%;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: var(--main-color);
+        color: #fff;
+      }
+    }
+  }
+
+  .form {
+    button {
+      background: var(--main-color);
+      border: 0;
+      padding: 10px 35px;
+      color: #fff;
+      transition: 0.4s;
+
+      &:hover {
+        background-color: #0052ce;
+      }
+    }
+  }
+}
+// Start Footer
+footer {
+  background-color: #0e1d34;
+
+  .container {
+    border-bottom: 1px solid #757575;
+    color: #fff;
+
+    span {
+      color: var(--main-color);
+    }
+
+    .social {
+      i {
+        font-size: 20px;
+        color: #eef7ff;
+        padding: 12px;
+        background: transparent;
+        border: 1px solid #eef7ff;
+        border-radius: 50%;
+      }
+    }
+
+    .links {
+      a {
+        color: #f5f5f5;
+        padding-bottom: 10px;
+        transition: 0.3s;
+        text-decoration: none;
+        transition: 0.3s;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // .images {
+    //   img {
+    //     width: 80px;
+    //     border: 2px solid #f0f0f0;
+    //     margin: 2px;
+    //   }
+    // }
+  }
+
+  .last-text {
+    p {
+      color: #fff !important;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
+// start animations
+@keyframes down {
+
+  0%,
+  10%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40%,
+  60% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes bounce {
+
+  0%,
+  100% {
+    top: 0;
+  }
+
+  50% {
+    top: -50px;
+  }
+}
+@keyframes line {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: var(--width);
+  }
+}
+// end animations
+
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  img:hover {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+/* Add Animation */
+.modal-content {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.2s;
+  animation-name: zoom;
+  animation-duration: 0.2s;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #0061f2;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: var(--main-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 90% !important;
+  }
+}
